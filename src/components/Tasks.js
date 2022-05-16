@@ -3,8 +3,13 @@ import React from "react"
 function Tasks() {
     return (
         <div id="tasks-container">
-            <p>Tasks</p>
-            <p>Total</p>
+            
+            <div>
+                <p>Tasks</p>
+            </div>
+            <div>
+                <p>Total</p>    
+            </div>
         </div>
     )
 }
