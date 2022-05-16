@@ -1,14 +1,13 @@
 import React from "react"
 
-function Tasks() {
+function Tasks(props) {
     return (
-        <div id="tasks-container">
-            
+        <div className="tasks-container">
             <div>
-                <p>Tasks</p>
+                <p>{props.service}</p>
             </div>
-            <div>
-                <p>Total</p>    
+            <div> 
+                <p>{props.amount}</p>
             </div>
         </div>
     )

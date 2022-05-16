@@ -2,6 +2,7 @@ import React, {useState} from "react"
 import "./styles.css"
 import Header from "./components/Header"
 import Button from "./components/Button"
+import Tasks from "./components/Tasks"
 
 function App() {
     const services = [
@@ -48,9 +49,23 @@ function App() {
                         ]
                     )
                 })
+                return servicesRequested
             }
         })
     }
+
+    const tasks = servicesRequested.map((servicesItem) => {
+        return (
+            <Tasks
+                key={servicesItem.id}
+                id={servicesItem.id}
+                service={servicesItem.service}
+                amount={servicesItem.amount}
+            />
+        )
+    })
+
+
 
     return (
         <>
@@ -58,6 +73,11 @@ function App() {
             <div id="service-btn-container">
                 {serviceButtons}
             </div>
+            <div className="tasks-container">
+                <p>Task</p>
+                <p>TOTAL AMOUNT</p>
+            </div>
+            {tasks}
         </>
     )
 }
