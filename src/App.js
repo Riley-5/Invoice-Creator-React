@@ -55,18 +55,21 @@ function App() {
         })
     }
 
-    const tasks = servicesRequested.map((servicesItem) => {
+    const tasks = servicesRequested.map((serviceItem) => {
         return (
             <Tasks
-                key={servicesItem.id}
-                id={servicesItem.id}
-                service={servicesItem.service}
-                amount={servicesItem.amount}
+                key={serviceItem.id}
+                id={serviceItem.id}
+                service={serviceItem.service}
+                amount={serviceItem.amount}
             />
         )
     })
 
-
+    function resetApp() {
+        setServicesRequested([])
+        setSum(0)
+    } 
 
     return (
         <>
@@ -88,6 +91,9 @@ function App() {
                     <p>TOTAL AMOUNT</p>
                     <p id="total-amount-el">${sum}</p>
                 </div>
+            </div>
+            <div id="send-invoice-container">
+                <button id="send-invoice-btn" onClick={resetApp}>Send invoice</button>
             </div>
         </>
     )
