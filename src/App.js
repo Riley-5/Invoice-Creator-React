@@ -3,6 +3,7 @@ import "./styles.css"
 import Header from "./components/Header"
 import Button from "./components/Button"
 import Tasks from "./components/Tasks"
+import { findAllByDisplayValue } from "@testing-library/react"
 
 function App() {
     const services = [
@@ -43,11 +44,11 @@ function App() {
         services.map((serviceItem) => {
             if (parseInt(serviceItem.id) === parseInt(id)) {
                 setSum((sum + serviceItem.amount))
-                setServicesRequested((prevServicesRequested) => {
+                setServicesRequested((prevservicesRequested) => {
                     return (
                         [
-                            ...prevServicesRequested,
-                            serviceItem
+                            ...prevservicesRequested,
+                            serviceItem,
                         ]
                     )
                 })
@@ -72,7 +73,7 @@ function App() {
     } 
 
     return (
-        <>
+        <div id="body">
             <Header/>
             <div id="service-btn-container">
                 {serviceButtons}
@@ -95,7 +96,7 @@ function App() {
             <div id="send-invoice-container">
                 <button id="send-invoice-btn" onClick={resetApp}>Send invoice</button>
             </div>
-        </>
+        </div>
     )
 }
 

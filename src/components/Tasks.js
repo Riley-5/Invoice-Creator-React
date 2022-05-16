@@ -4,10 +4,10 @@ function Tasks(props) {
     return (
         <div className="tasks-container">
             <div>
-                <p>{props.service}</p>
+                <p id="service-el">{props.service}</p>
             </div>
             <div> 
-                <p>${props.amount}</p>
+                <p id="amount-el">${props.amount}</p>
             </div>
         </div>
     )
