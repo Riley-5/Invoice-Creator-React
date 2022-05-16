@@ -6,7 +6,7 @@ import React from "react"
 
 function Button(props) {
     return (
-        <button id="service-btn"></button>
+        <button id="service-btn">{props.service}: ${props.amount}</button>
     )
 }
 
