@@ -24,6 +24,7 @@ function App() {
     ]
 
     const [servicesRequested, setServicesRequested] = useState([]) 
+    const [sum, setSum] = useState(0)
 
     const serviceButtons = services.map((serviceItem) => {
         return (
@@ -40,7 +41,8 @@ function App() {
     function addService(e) {
         const id = e.target.id
         services.map((serviceItem) => {
-            if (serviceItem.id == id) {
+            if (parseInt(serviceItem.id) === parseInt(id)) {
+                setSum((sum + serviceItem.amount))
                 setServicesRequested((prevServicesRequested) => {
                     return (
                         [
@@ -49,7 +51,6 @@ function App() {
                         ]
                     )
                 })
-                return servicesRequested
             }
         })
     }
@@ -75,9 +76,19 @@ function App() {
             </div>
             <div className="tasks-container">
                 <p>Task</p>
-                <p>TOTAL AMOUNT</p>
+                <p>TOTAL</p>
             </div>
             {tasks}
+            <div id="total-container">
+                <div>
+                    <p>Notes</p>
+                    <p>We accept cash, credit card, or PayPal</p>
+                </div>
+                <div>
+                    <p>TOTAL AMOUNT</p>
+                    <p id="total-amount-el">${sum}</p>
+                </div>
+            </div>
         </>
     )
 }

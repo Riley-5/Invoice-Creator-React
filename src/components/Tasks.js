@@ -7,7 +7,7 @@ function Tasks(props) {
                 <p>{props.service}</p>
             </div>
             <div> 
-                <p>{props.amount}</p>
+                <p>${props.amount}</p>
             </div>
         </div>
     )
