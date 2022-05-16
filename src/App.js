@@ -4,7 +4,7 @@ import Header from "./components/Header"
 import Button from "./components/Button"
 
 function App() {
-    const [services, setServices] = useState([
+    const services = [
         {
             id: 1,
             service: "Wash Car",
@@ -20,7 +20,9 @@ function App() {
             service: "Pull Weeds",
             amount: 30
         }
-    ])
+    ]
+
+    const [servicesRequested, setServicesRequested] = useState([]) 
 
     const serviceButtons = services.map((serviceItem) => {
         return (
@@ -29,9 +31,26 @@ function App() {
                 id={serviceItem.id}
                 service={serviceItem.service}
                 amount={serviceItem.amount}
+                addService={(event) => addService(event)}
             />
         )
     })
+
+    function addService(e) {
+        const id = e.target.id
+        services.map((serviceItem) => {
+            if (serviceItem.id == id) {
+                setServicesRequested((prevServicesRequested) => {
+                    return (
+                        [
+                            ...prevServicesRequested,
+                            serviceItem
+                        ]
+                    )
+                })
+            }
+        })
+    }
 
     return (
         <>

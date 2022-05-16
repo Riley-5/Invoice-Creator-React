@@ -6,7 +6,7 @@ import React from "react"
 
 function Button(props) {
     return (
-        <button id="service-btn">{props.service}: ${props.amount}</button>
+        <button id={props.id} className="service-btn" onClick={props.addService}>{props.service}: ${props.amount}</button>
     )
 }
 
